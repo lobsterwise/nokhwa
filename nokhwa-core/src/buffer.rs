@@ -27,7 +27,7 @@ use opencv::{boxed_ref::BoxedRef, core::Mat};
 /// Contains information of Resolution, the buffer's [`FrameFormat`], and the buffer.
 ///
 /// Note that decoding on the main thread **will** decrease your performance and lead to dropped frames.
-#[derive(Clone, Debug, PartialOrd, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialOrd, PartialEq)]
 pub struct Buffer {
     resolution: Resolution,
     buffer: Bytes,
