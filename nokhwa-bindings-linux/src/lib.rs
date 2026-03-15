@@ -882,7 +882,7 @@ mod internal {
                     Ok((data, meta)) => {
                         let mut buf = Buffer::new(
                             cam_fmt.resolution(),
-                            &raw_frame,
+                            data,
                             cam_fmt.format(),
                         );
                         buf.set_timestamp(meta.timestamp.sec as f64 + meta.timestamp.usec as f64 / 1.0e6);
