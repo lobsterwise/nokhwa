@@ -32,6 +32,7 @@ pub struct Buffer {
     resolution: Resolution,
     buffer: Bytes,
     source_frame_format: FrameFormat,
+    timestamp: Option<f64>,
 }
 
 impl Buffer {
@@ -43,7 +44,18 @@ impl Buffer {
             resolution: res,
             buffer: Bytes::copy_from_slice(buf),
             source_frame_format,
+            timestamp: None,
         }
+    }
+
+    /// Sets the timestamp of this buffer
+    pub fn set_timestamp(&mut self, timestamp: f64) {
+        self.timestamp = Some(timestamp);
+    }
+
+    /// Gets the timestamp of this frame
+    pub fn get_timestamp(&self) -> Option<f64> {
+        self.timestamp
     }
 
     /// Get the [`Resolution`] of this buffer.
